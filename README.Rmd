@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 # rougemont <img src="man/figures/logo.png" align="right" />
 
-> Access all the texts of Denis de Rougemont's books
+> All the texts of Denis de Rougemont's books
 
 The package `rougemont` gives access to all the texts of Denis de Rougemont's books including republications, at the exception of *The Heart of Europe* (1941) and *The Christian Opportunity* (1963), in a Tidy format, taken from the [digital books library](https://www.unige.ch/rougemont/livres/) of the *Rougemont 2.0* project from the University of Geneva.
 
