@@ -1,0 +1,5 @@
+image: rocker/verse
+
+test:
+   script:
+    - R -e 'devtools::check()'
