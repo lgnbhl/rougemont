@@ -4,6 +4,12 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- badges: start -->
+[![R build status](https://github.com/lgnbhl/rougemont/workflows/R-CMD-check/badge.svg)](https://github.com/lgnbhl/rougemont/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/rougemont)](https://CRAN.R-project.org/package=rougemont)
+[![pipeline status](https://gitlab.com/lgnbhl/rougemont/badges/master/pipeline.svg)](https://gitlab.com/lgnbhl/rougemont/pipelines)
+<!-- badges: end -->
+
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -11,9 +17,6 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/"
 )
 ```
-
-[![CRAN status](https://www.r-pkg.org/badges/version/rougemont)](https://CRAN.R-project.org/package=rougemont)
-[![pipeline status](https://gitlab.com/lgnbhl/rougemont/badges/master/pipeline.svg)](https://gitlab.com/lgnbhl/rougemont/pipelines)
 
 # rougemont <img src="man/figures/logo.png" align="right" />
 
@@ -38,9 +41,8 @@ Overview of the `rougemont` dataset.
 
 ```{r}
 library(rougemont)
-library(tibble)
 
-as_tibble(rougemont)
+rougemont
 ```
 
 First lines of Denis de Rougemont's *Les Méfaits de l’Instruction publique* (1929).
@@ -52,7 +54,7 @@ rougemont$text[1:4]
 The metadata of the *Rougemont 2.0 project* is also accessible.
 
 ```{r}
-as_tibble(rougemont_metadata)
+rougemont_metadata
 ```
 
 ## Tidy text analysis
