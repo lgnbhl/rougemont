@@ -3,3 +3,4 @@
 .RData
 .Ruserdata
 .DS_Store
+get_data_from_github.R

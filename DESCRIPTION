@@ -1,8 +1,8 @@
 Package: rougemont
-Title: Full Texts of Denis de Rougemont's Books
+Title: Texts of Denis de Rougemont
 Version: 0.1.0
 Authors@R: 
-    c(person(given = "Félix",
+    c(person(given = "Felix",
            family = "Luginbuhl",
            role = c("aut", "cre"),
            email = "felix.luginbuhl@protonmail.ch")

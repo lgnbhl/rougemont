@@ -7,3 +7,4 @@
 ^data-raw
 ^.gitlab-ci.yml
 ^\.github$
+get_data_from_github.R

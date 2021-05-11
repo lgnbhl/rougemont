@@ -1,16 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- badges: start -->
+
+[![R build
+status](https://github.com/lgnbhl/rougemont/workflows/R-CMD-check/badge.svg)](https://github.com/lgnbhl/rougemont/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rougemont)](https://CRAN.R-project.org/package=rougemont)
-[![pipeline
-status](https://gitlab.com/lgnbhl/rougemont/badges/master/pipeline.svg)](https://gitlab.com/lgnbhl/rougemont/pipelines)
+<!-- badges: end -->
 
 # rougemont <img src="man/figures/logo.png" align="right" />
 
-> Access all the texts of Denis de Rougemont’s books
+> All the texts of Denis de Rougemont’s books
 
-The package `rougemont` gives access to all the texts of Denis de
+The package **rougemont** gives access to all the texts of Denis de
 Rougemont’s books including republications, at the exception of *The
 Heart of Europe* (1941) and *The Christian Opportunity* (1963), in a
 Tidy format, taken from the [digital books
@@ -34,24 +37,32 @@ remotes::install_github("lgnbhl/rougemont")
 Overview of the `rougemont` dataset.
 
 ``` r
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
 library(rougemont)
-library(tibble)
 
 as_tibble(rougemont)
 #> # A tibble: 47,825 x 6
 #>    title_book     date  publisher    url_book      url_chapter     text         
 #>    <chr>          <chr> <chr>        <chr>         <chr>           <chr>        
-#>  1 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… [p. 7]       
-#>  2 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… Avant-propos…
-#>  3 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… Le dire une …
-#>  4 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… Il ne faut p…
-#>  5 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… Il a paru su…
-#>  6 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… Mon dessein …
-#>  7 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… Nous vivons …
-#>  8 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… D’ailleurs, …
-#>  9 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… — Alors ?    
-#> 10 Les Méfaits d… 1929  Les Petites… https://www.… https://www.un… — Justement.…
-#> # … with 47,815 more rows
+#>  1 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ [p. 7]       
+#>  2 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ Avant-propos~
+#>  3 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ Le dire une ~
+#>  4 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ Il ne faut p~
+#>  5 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ Il a paru su~
+#>  6 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ Mon dessein ~
+#>  7 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ Nous vivons ~
+#>  8 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ D’ailleurs, ~
+#>  9 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ — Alors ?    
+#> 10 Les Méfaits d~ 1929  Les Petites~ https://www.~ https://www.un~ — Justement.~
+#> # ... with 47,815 more rows
 ```
 
 First lines of Denis de Rougemont’s *Les Méfaits de l’Instruction
@@ -68,21 +79,21 @@ rougemont$text[1:4]
 The metadata of the *Rougemont 2.0 project* is also accessible.
 
 ``` r
-as_tibble(rougemont_metadata)
+rougemont_metadata
 #> # A tibble: 2,646 x 7
 #>    url_chapter   title_chapter  url_book   title_book  url_img   publisher date 
 #>    <chr>         <chr>          <chr>      <chr>       <chr>     <chr>     <chr>
-#>  1 https://www.… Avant-propos   https://w… Les Méfait… https://… Les Peti… 1929 
-#>  2 https://www.… 1. Mes prisons https://w… Les Méfait… https://… Les Peti… 1929 
-#>  3 https://www.… 2. Descriptio… https://w… Les Méfait… https://… Les Peti… 1929 
-#>  4 https://www.… 3. Anatomie d… https://w… Les Méfait… https://… Les Peti… 1929 
-#>  5 https://www.… 1. Le program… https://w… Les Méfait… https://… Les Peti… 1929 
-#>  6 https://www.… 2. Les examens https://w… Les Méfait… https://… Les Peti… 1929 
-#>  7 https://www.… 3. L’égalitar… https://w… Les Méfait… https://… Les Peti… 1929 
-#>  8 https://www.… 4. Le gavage   https://w… Les Méfait… https://… Les Peti… 1929 
-#>  9 https://www.… 5. La discipl… https://w… Les Méfait… https://… Les Peti… 1929 
-#> 10 https://www.… 6. La prépara… https://w… Les Méfait… https://… Les Peti… 1929 
-#> # … with 2,636 more rows
+#>  1 https://www.~ Avant-propos   https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#>  2 https://www.~ 1. Mes prisons https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#>  3 https://www.~ 2. Descriptio~ https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#>  4 https://www.~ 3. Anatomie d~ https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#>  5 https://www.~ 1. Le program~ https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#>  6 https://www.~ 2. Les examens https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#>  7 https://www.~ 3. L’égalitar~ https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#>  8 https://www.~ 4. Le gavage   https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#>  9 https://www.~ 5. La discipl~ https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#> 10 https://www.~ 6. La prépara~ https://w~ Les Méfait~ https://~ Les Peti~ 1929 
+#> # ... with 2,636 more rows
 ```
 
 ## Tidy text analysis
@@ -96,7 +107,6 @@ Denis de Rougemont.
 
 ``` r
 library(tidytext)
-library(dplyr)
 library(ggplot2)
 
 rougemont %>%
@@ -121,7 +131,10 @@ rougemont %>%
 ![Highest tf-idf words in four selected books of Denis de
 Rougemont](man/figures/tf-idf-1.png)
 
-## Disclaimer
+## Other information
+
+The *eRougemont* Github project is accessible
+[here](https://github.com/eRougemont).
 
 This package is in no way officially endorsed by the University of
 Geneva.
